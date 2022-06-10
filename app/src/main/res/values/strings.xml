@@ -1,0 +1,139 @@
+<resources>
+    <string name="app_name">MonthlyWriting_Beta</string>
+    <string name="monthly_writing">월말결산</string>
+
+    <string-array name="month_name">
+        <item>1월</item>
+        <item>2월</item>
+        <item>3월</item>
+        <item>4월</item>
+        <item>5월</item>
+        <item>6월</item>
+        <item>7월</item>
+        <item>8월</item>
+        <item>9월</item>
+        <item>10월</item>
+        <item>11월</item>
+        <item>12월</item>
+    </string-array>
+
+    <string name="dialog_yes">확인</string>
+    <string name="dialog_no">취소</string>
+
+    <!-- Titles -->
+    <string name="title_home">홈</string>
+    <string name="title_collection">모아보기</string>
+    <string name="title_setting">설정</string>
+
+    <string name="title_goal_add">만들기</string>
+    <string name="title_goal_detail">기록하기</string>
+    <string name="title_memo_add">일일 메모</string>
+    <string name="title_memo_edit">일일 메모</string>
+
+    <string name="title_photo_retrospect">보는</string>
+    <string name="title_writing_retrospect">쓰는</string>
+    <string name="title_closing_paper">결산서</string>
+
+
+    <!-- Menu -->
+    <string name="menu_delete">삭제하기</string>
+
+    <!-- WalkThrough -->
+    <string name="text_get_name">안녕하세요!\n월말결산이에요.\n당신의 이름은 무엇인가요?</string>
+    <string name="text_hint_get_name">이름을 알려주세요.</string>
+    <string name="text_authority_chat">
+        %1$s님!\n월말 결산은 정해진 시간에만 할 수 있어요.\n놓치지 않도록 도와드릴게요!
+    </string>
+    <string name="text_btn_notification_true">알림 설정하기</string>
+    <string name="text_btn_notification_false">나중에 하기</string>
+    <string name="toast_no_name">이름을 입력해주세요!</string>
+
+    <!-- Guide -->
+    <string name="text_guide_page_num">%1$d/3</string>
+    <string name="text_guide_back">이전</string>
+
+    <!-- Home -->
+    <string name="text_goal_num">한달 목표 %1$d</string>
+    <string name="text_d_day_monthly_writing">D-%1$d 월말결산</string>
+    <string name="text_do_monthly_writing">월말결산</string>
+
+    <!-- Goal: Add -->
+    <string name="text_goals">목표</string>
+    <string name="text_add_emoji">이모지를 넣어요</string>
+    <string name="text_add_goal">목표를 써요</string>
+    <string name="hint_add_goal">목표를 입력하세요</string>
+    <string name="hint_extra_goal">이번 달 000의 목표를 알려줘!</string>
+
+    <!-- Goal: Detail -->
+    <string name="text_title_photo">사진첩</string>
+    <string name="text_title_memo">일일메모</string>
+    <string name="hint_add_memo">목표를 이루기 위한 오늘의 노력을 기록하세요</string>
+
+    <string name="dialog_delete_goal_title">목표를 삭제하시겠습니까?</string>
+    <string name="dialog_delete_goal_message">목표 내에 저장된 데이터가 모두 삭제됩니다.</string>
+
+    <!-- Goal: Detail - Memo Add -->
+    <string name="hint_add_memo_full">
+        목표를 이루기 위한 일일 메모를 기록하세요.\n
+        ex) 오늘 하루도 수고 했어요!
+    </string>
+    <string name="text_save_memo">저장하기</string>
+    <string name="toast_no_memo_input">메모를 입력해주세요!</string>
+
+    <!-- Writing: Main -->
+    <string name="text_title_monthly_writing">월말 결산</string>
+    <string name="text_monthly_writing_chat_main">
+        안녕~ 000!\n%1$d월달 월말결산하러 갈까?
+    </string>
+    <string name="text_item_monthly_writing">한 달 돌아보기</string>
+    <string name="text_closing_paper">결산서 보러가기</string>
+
+    <!-- Writing: Short -->
+    <string name="text_monthly_writing_chat_short_1">%1$s\n는 어땠어?</string>
+    <string name="text_save_rating">이거야!</string>
+    <string name="text_monthly_writing_chat_short_2">%1$s는\n이랬구나!</string>
+    <string name="text_monthly_writing_chat_short_3">평가하기가 끝났어.\n더 자세히 기록해볼래?</string>
+
+    <string name="text_continue_monthly_writing">작성하러 가기😄</string>
+    <string name="text_stop_monthly_writing">여기서 그만하기😥</string>
+
+    <!-- Closing Paper -->
+    <string name="text_closing_paper_chat">000를 위한\n%1$d월 월말결산서</string>
+
+    <!-- Writing: Long -->
+    <string name="text_drawer_daily_memo">일일메모</string>
+    <string name="hint_monthly_writing_long">한 달을 돌아보고 기록해주세요.</string>
+
+    <!-- Writing: Photo -->
+    <string name="text_next">다음</string>
+
+    <!-- Writing: Writing -->
+    <string name="hint_add_writing">나의 한 달을 돌아보고 월말결산을 해보세요.</string>
+    <string name="hint_add_emoji">Emoji\n선택하기</string>
+
+    <string name="text_title_writing">한달 기록</string>
+    <string name="text_evaluate">평가하기</string>
+    <string name="text_good">상</string>
+    <string name="text_fair">중</string>
+    <string name="text_poor">하</string>
+    <string name="toast_no_retrospect_input">평가를 입력해주세요.</string>
+
+    <!-- Writing: Writing Month -->
+    <string name="hint_write_month">지난 한 달을 자유롭게 정리해보세요!</string>
+    <!-- Collection -->
+    <string name="text_open_monthly_goal">기록 보기</string>
+    <string name="text_open_monthly_writing">월말결산 보기</string>
+
+    <!-- Setting -->
+    <string name="text_setting_title_app">앱 설정</string>
+    <string name="text_setting_title_information">이용 안내</string>
+
+    <string name="text_setting_notification">알림 설정</string>
+    <string name="text_setting_survey">설문조사</string>
+
+    <!-- Notification -->
+    <string name="notification_message">월말결산을 하세요.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

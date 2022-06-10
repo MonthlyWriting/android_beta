@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".ui.writing.longs.WritingLongFragment">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.monthlywriting.android.beta.ui.writing.longs.WritingLongViewModel" />
+    </data>
+
+    <LinearLayout
+        android:id="@+id/root_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/rl_goal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/background_text_chat_sent">
+
+            <TextView
+                android:id="@+id/tv_evaluation"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:background="@drawable/background_saved_rating_border"
+                android:gravity="center" />
+
+            <TextView
+                android:id="@+id/tv_goal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:layout_centerVertical="true"
+                android:layout_marginHorizontal="16dp"
+                android:layout_toEndOf="@id/tv_evaluation"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_photo"
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:layout_marginTop="14dp"
+            android:overScrollMode="never" />
+
+        <EditText
+            android:id="@+id/et_writing"
+            style="@style/text_style_edit_02"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="24dp"
+            android:layout_weight="1"
+            android:background="@drawable/background_edit_text_border"
+            android:gravity="start|top"
+            android:hint="@string/hint_monthly_writing_long"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            android:padding="16dp"
+            android:text="@={viewModel.writing}" />
+
+        <TextView
+            android:id="@+id/tv_drawer_daily_memo"
+            style="@style/text_style_text_01"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="36dp"
+            android:gravity="center"
+            android:text="@string/text_drawer_daily_memo"
+            android:textColor="#FF979797"
+            app:drawableTopCompat="@drawable/ic_drawer_up" />
+    </LinearLayout>
+</layout>

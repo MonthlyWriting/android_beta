@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_writing"
+    app:startDestination="@id/nav_writing_main">
+
+    <fragment
+        android:id="@+id/nav_writing_main"
+        android:name="com.monthlywriting.android.beta.ui.writing.main.WritingMainFragment"
+        android:label="fragment_writing_main"
+        tools:layout="@layout/fragment_writing_main">
+        <action
+            android:id="@+id/open_writing_short"
+            app:destination="@id/nav_writing_short" />
+        <action
+            android:id="@+id/open_closing_paper"
+            app:destination="@id/nav_closing_paper" />
+        <action
+            android:id="@+id/open_writing_month"
+            app:destination="@id/nav_writing_month" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_writing_short"
+        android:name="com.monthlywriting.android.beta.ui.writing.shorts.WritingShortFragment"
+        android:label="fragment_writing_short"
+        tools:layout="@layout/fragment_writing_short">
+        <action
+            android:id="@+id/open_writing_long"
+            app:destination="@id/nav_writing_long" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_writing_long"
+        android:name="com.monthlywriting.android.beta.ui.writing.longs.WritingLongFragment"
+        android:label="fragment_writing_long"
+        tools:layout="@layout/fragment_writing_long" >
+        <action
+            android:id="@+id/open_memo_bottom_sheet"
+            app:destination="@id/nav_memo_bottom_sheet" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_memo_bottom_sheet"
+        android:name="com.monthlywriting.android.beta.ui.writing.memo.MemoBottomSheetFragment"
+        android:label="fragment_goal_bottom_sheet"
+        tools:layout="@layout/fragment_memo_bottom_sheet" />
+
+    <fragment
+        android:id="@+id/nav_closing_paper"
+        android:name="com.monthlywriting.android.beta.ui.writing.closing.ClosingPaperFragment"
+        android:label="fragment_closing_paper"
+        tools:layout="@layout/fragment_closing_paper" />
+
+    <fragment
+        android:id="@+id/nav_writing_month"
+        android:name="com.monthlywriting.android.beta.ui.writing.main.WritingMonthFragment"
+        android:label="fragment_writing_month"
+        tools:layout="@layout/fragment_writing_month" >
+        <argument
+            android:name="month"
+            app:argType="integer" />
+    </fragment>
+</navigation>

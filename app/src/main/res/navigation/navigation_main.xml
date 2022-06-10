@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_main"
+    app:startDestination="@id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.monthlywriting.android.beta.ui.main.home.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/open_goal_add"
+            app:destination="@id/nav_goal_add" />
+        <action
+            android:id="@+id/open_goal_detail"
+            app:destination="@id/nav_goal_detail" />
+        <action
+            android:id="@+id/open_monthly_writing"
+            app:destination="@id/nav_writing_activity" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_collection"
+        android:name="com.monthlywriting.android.beta.ui.main.collection.CollectionFragment"
+        android:label="fragment_collection"
+        tools:layout="@layout/fragment_collection" >
+        <action
+            android:id="@+id/open_collection_monthly"
+            app:destination="@id/nav_collection_monthly" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.monthlywriting.android.beta.ui.main.setting.SettingFragment"
+        android:label="fragment_setting"
+        tools:layout="@layout/fragment_setting" />
+
+    <fragment
+        android:id="@+id/nav_goal_add"
+        android:name="com.monthlywriting.android.beta.ui.goal.add.GoalAddFragment"
+        android:label="fragment_goal_add"
+        tools:layout="@layout/fragment_goal_add" />
+
+    <fragment
+        android:id="@+id/nav_goal_detail"
+        android:name="com.monthlywriting.android.beta.ui.goal.detail.GoalDetailFragment"
+        android:label="fragment_goal_detail"
+        tools:layout="@layout/fragment_goal_detail">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <argument
+            android:name="isEditable"
+            app:argType="boolean" />
+        <action
+            android:id="@+id/open_memo_add"
+            app:destination="@id/nav_memo_add" />
+        <action
+            android:id="@+id/open_memo_edit"
+            app:destination="@id/nav_memo_edit" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_memo_add"
+        android:name="com.monthlywriting.android.beta.ui.goal.memo.add.MemoAddFragment"
+        android:label="fragment_memo_add"
+        tools:layout="@layout/fragment_memo_add" />
+
+    <fragment
+        android:id="@+id/nav_memo_edit"
+        android:name="com.monthlywriting.android.beta.ui.goal.memo.edit.MemoEditFragment"
+        android:label="fragment_memo_edit"
+        tools:layout="@layout/fragment_memo_edit">
+        <argument
+            android:name="index"
+            app:argType="integer" />
+    </fragment>
+
+    <activity
+        android:id="@+id/nav_writing_activity"
+        android:name="com.monthlywriting.android.beta.activity.WritingActivity"
+        android:label="activity_writing"
+        tools:layout="@layout/activity_writing">
+        <argument
+            android:name="year"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+    </activity>
+
+    <fragment
+        android:id="@+id/nav_collection_monthly"
+        android:name="com.monthlywriting.android.beta.ui.main.collection.detail.CollectionMonthlyFragment"
+        android:label="fragment_collection_monthly"
+        tools:layout="@layout/fragment_collection_monthly" >
+        <argument
+            android:name="year"
+            app:argType="integer" />
+        <argument
+            android:name="month"
+            app:argType="integer" />
+        <action
+            android:id="@+id/open_goal_detail"
+            app:destination="@id/nav_goal_detail" />
+    </fragment>
+</navigation>

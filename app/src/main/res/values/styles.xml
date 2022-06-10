@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="transparent_dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowTitleStyle">@null</item>
+        <item name="android:windowSoftInputMode">stateUnspecified|adjustPan</item>
+        <item name="android:background">@android:color/transparent</item>
+    </style>
+
+    <style name="animation_slide_up">
+        <item name="android:windowEnterAnimation">@anim/from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/to_bottom</item>
+    </style>
+
+    <!-- Font -->
+    <style name="text_style_header_01">
+        <item name="fontFamily">@font/font_pretendard_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_style_title_01">
+        <item name="fontFamily">@font/font_pretendard_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_style_text_01">
+        <item name="fontFamily">@font/font_pretendard_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_style_text_02">
+        <item name="fontFamily">@font/font_pretendard_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">#FF676565</item>
+    </style>
+
+    <style name="text_style_edit_01">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColorHint">#FF676565</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_style_edit_02">
+        <item name="fontFamily">@font/pretendard_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">13sp</item>
+        <item name="android:textColorHint">#FF676565</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="text_style_button">
+        <item name="fontFamily">@font/font_pretendard_semibold</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:stateListAnimator">@null</item>
+        <item name="android:paddingTop">13dp</item>
+        <item name="android:paddingBottom">13dp</item>
+        <item name="android:background">@drawable/big_button_background</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="text_style_chat_received">
+        <item name="fontFamily">@font/font_pretendard_regular</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/background_text_chat_received</item>
+        <item name="android:paddingStart">38dp</item>
+        <item name="android:paddingEnd">38dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="rating_bar_custom" parent="Widget.AppCompat.RatingBar">
+        <item name="android:progressDrawable">@drawable/background_ratingbar_custom</item>
+        <item name="colorControlNormal">#FFFBEEDC</item>
+        <item name="colorControlActivated">#FF382F28</item>
+    </style>
+
+</resources>
