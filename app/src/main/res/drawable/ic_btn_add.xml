@@ -6,7 +6,7 @@
   <path
       android:pathData="M14,23V14M14,14V5M14,14H23M14,14H5"
       android:strokeWidth="2.22973"
-      android:fillColor="#00000000"
-      android:strokeColor="#000000"
+      android:fillColor="@color/color_jjinbam"
+      android:strokeColor="@color/color_jjinbam"
       android:strokeLineCap="round"/>
 </vector>

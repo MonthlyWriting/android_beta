@@ -1,5 +1,6 @@
 package com.monthlywriting.android.beta.ui.goal.memo.edit
 
+import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -40,8 +41,18 @@ class MemoEditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         (activity as MainActivity).setToolbarTitle(resources.getString(R.string.title_memo_edit))
         (activity as MainActivity).toggleDeleteBtn(true){
-            goalDetailViewModel.deleteMemo(args.index)
-            findNavController().navigateUp()
+            val builder = AlertDialog.Builder(requireContext())
+            builder
+                .setTitle(requireContext().resources.getString(R.string.dialog_delete_memo_title))
+                .setMessage(requireContext().resources.getString(R.string.dialog_delete_memo_message))
+                .setPositiveButton(requireContext().resources.getString(R.string.dialog_yes)) { _, _ ->
+                    goalDetailViewModel.deleteMemo(args.index)
+                     findNavController().navigateUp()
+                }
+                .setNegativeButton(requireContext().resources.getString(R.string.dialog_no)) { _, _ ->
+
+                }
+                .show()
         }
 
         setMemo()

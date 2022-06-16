@@ -10,7 +10,7 @@
         android:id="@+id/rl_goal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/background_gray_frame"
+        android:background="@drawable/background_skin_frame"
         android:gravity="start"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -71,7 +71,7 @@
                 style="@style/text_style_title_01"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
+                android:layout_marginTop="24dp"
                 android:text="@string/text_title_memo"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/rv_photo" />
@@ -88,10 +88,11 @@
 
     <TextView
         android:id="@+id/tv_add_memo"
-        style="@style/text_style_text_02"
+        style="@style/text_style_edit_02"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="13dp"
+        android:textColor="@color/color_edittext"
         android:background="@drawable/text_border"
         android:padding="16dp"
         android:text="@string/hint_add_memo"

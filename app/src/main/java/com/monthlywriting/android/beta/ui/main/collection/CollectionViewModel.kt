@@ -29,7 +29,7 @@ class CollectionViewModel @Inject constructor(
             val list = mutableListOf<Boolean>()
             for (month in 1..12) {
                 if (goalRepository.getByMonth(year, month).isEmpty()
-                    || writingRepository.getByMonth(year, month) == null
+                    && writingRepository.getByMonth(year, month) == null
                 ) {
                     list.add(true)
                 } else {

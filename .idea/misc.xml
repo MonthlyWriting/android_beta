@@ -3,8 +3,33 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_gray_frame.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_skin_frame.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_add.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_back.xml" value="0.133" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_collection_selected.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_delete.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_open_detail.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_open_detail_skin.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_setting_selected.xml" value="0.104" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_setting_unselected.xml" value="0.104" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/selector_btn_collection.xml" value="0.264" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/text_border.xml" value="0.35" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_main.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_splash.xml" value="0.18465045592705168" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_walk_through.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_authority.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_goal_add.xml" value="0.18465045592705168" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_goal_detail.xml" value="0.2341485507246377" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_guide_container.xml" value="0.18465045592705168" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_home.xml" value="0.23958333333333334" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_writing_long.xml" value="0.16988416988416988" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_collection.xml" value="0.24818840579710144" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_goal.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_goal_photo.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_memo.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_temp_goal.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/menu/menu_bottom_nav_main.xml" value="0.3796875" />
       </map>
     </option>
   </component>

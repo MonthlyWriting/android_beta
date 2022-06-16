@@ -62,7 +62,7 @@
     <string name="text_add_emoji">이모지를 넣어요</string>
     <string name="text_add_goal">목표를 써요</string>
     <string name="hint_add_goal">목표를 입력하세요</string>
-    <string name="hint_extra_goal">이번 달 000의 목표를 알려줘!</string>
+    <string name="hint_extra_goal">이번 달 목표를 적어보세요!</string>
 
     <!-- Goal: Detail -->
     <string name="text_title_photo">사진첩</string>
@@ -79,6 +79,10 @@
     </string>
     <string name="text_save_memo">저장하기</string>
     <string name="toast_no_memo_input">메모를 입력해주세요!</string>
+
+    <!-- Goal: Detail - Memo Edit -->
+    <string name="dialog_delete_memo_title">메모를 삭제하시겠습니까?</string>
+    <string name="dialog_delete_memo_message">삭제된 메모는 다시 확인할 수 없습니다.</string>
 
     <!-- Writing: Main -->
     <string name="text_title_monthly_writing">월말 결산</string>

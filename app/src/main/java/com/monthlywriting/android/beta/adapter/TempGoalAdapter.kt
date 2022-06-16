@@ -2,6 +2,7 @@ package com.monthlywriting.android.beta.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
@@ -44,15 +45,19 @@ class TempGoalAdapter(private val deleteItem: (Int) -> Unit) :
         RecyclerView.ViewHolder(binding.root) {
 
         fun setData() {
-            when (adapterPosition){
-                differ.currentList.size -> {
-                    binding.tvGoal.text = context.resources.getString(R.string.hint_extra_goal)
-                    setTextViewColor(context, binding.tvGoal, R.color.color_979797)
-                }
-                else -> {
-                    binding.tvGoal.text = differ.currentList[adapterPosition]
-                    binding.ivDelete.setOnClickListener {
-                        deleteItem(adapterPosition)
+            binding.apply {
+                when (bindingAdapterPosition){
+                    differ.currentList.size -> {
+                        tvGoal.text = context.resources.getString(R.string.hint_extra_goal)
+                        setTextViewColor(context, tvGoal, R.color.color_979797)
+                        ivDelete.visibility = View.GONE
+                    }
+                    else -> {
+                        tvGoal.text = differ.currentList[bindingAdapterPosition]
+                        ivDelete.visibility = View.VISIBLE
+                        ivDelete.setOnClickListener {
+                            deleteItem(bindingAdapterPosition)
+                        }
                     }
                 }
             }

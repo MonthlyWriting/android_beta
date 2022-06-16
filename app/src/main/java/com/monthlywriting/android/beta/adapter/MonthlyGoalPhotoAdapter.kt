@@ -37,7 +37,7 @@ class MonthlyGoalPhotoAdapter(
             parent,
             false)
 
-        width = ((parent.width -
+        width = ((parent.measuredWidth -
                 3 * parent.context.resources.getDimension(R.dimen.horizontal_recycler_view_margin)) * 0.25).toInt()
         return MonthlyGoalPhotoViewHolder(binding)
     }

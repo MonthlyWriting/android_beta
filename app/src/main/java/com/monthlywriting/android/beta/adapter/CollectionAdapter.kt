@@ -67,6 +67,10 @@ class CollectionAdapter(private val year: Int) :
                     it.findNavController().navigate(action)
                 }
 
+                binding.tvMonthlyWriting.setOnClickListener {
+
+                }
+
                 val isExpanded = bindingAdapterPosition == mExpandedPosition
                 binding.containerDetail.visibility = if (isExpanded) View.VISIBLE else View.GONE
 

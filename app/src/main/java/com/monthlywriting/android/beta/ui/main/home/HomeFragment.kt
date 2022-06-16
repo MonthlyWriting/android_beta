@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        (activity as MainActivity).setToolbarTitle(resources.getString(R.string.title_home))
+        (activity as MainActivity).setToolbarTitle(resources.getStringArray(R.array.month_name)[currentMonth - 1])
         setRecyclerView()
         setObserver()
         setFunction()

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import android.widget.ImageView
+import androidx.activity.OnBackPressedCallback
 import com.bolaware.viewstimerstory.Momentz
 import com.bolaware.viewstimerstory.MomentzCallback
 import com.bolaware.viewstimerstory.MomentzView
@@ -23,6 +24,8 @@ class PhotoDetailFragment : Fragment(), MomentzCallback {
     private var list: List<String> = listOf()
     private var startingIndex: Int = 0
 
+    private lateinit var momentz: Momentz
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -35,9 +38,19 @@ class PhotoDetailFragment : Fragment(), MomentzCallback {
         requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         initializeData()
         startMomentz()
+
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    finishFragment()
+                    for (i in list.indices) {
+                        momentz.next()
+                    }
+                }
+            })
     }
 
-    private fun initializeData(){
+    private fun initializeData() {
         arguments?.let {
             list = it.getStringArrayList(FILEPATH_LIST) as List<String>
             startingIndex = it.getInt(CLICKED_POSITION)
@@ -55,7 +68,7 @@ class PhotoDetailFragment : Fragment(), MomentzCallback {
             viewList.add(MomentzView(imageView, 5))
         }
 
-        val momentz = Momentz(requireContext(),
+        momentz = Momentz(requireContext(),
             viewList,
             binding.container,
             this,
@@ -71,9 +84,7 @@ class PhotoDetailFragment : Fragment(), MomentzCallback {
     }
 
     override fun done() {
-        requireActivity().supportFragmentManager.beginTransaction()
-            .remove(this)
-            .commit()
+        finishFragment()
     }
 
     override fun onNextCalled(view: View, momentz: Momentz, index: Int) {}
@@ -92,6 +103,12 @@ class PhotoDetailFragment : Fragment(), MomentzCallback {
         private const val FILEPATH_LIST = "filepath list"
         private const val CLICKED_POSITION = "clicked position"
         private const val MOMENTZ_TITLE = "momentz title"
+    }
+
+    fun finishFragment() {
+        requireActivity().supportFragmentManager.beginTransaction()
+            .remove(this)
+            .commit()
     }
 
     override fun onDestroy() {
