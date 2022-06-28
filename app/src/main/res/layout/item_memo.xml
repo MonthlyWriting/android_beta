@@ -10,7 +10,7 @@
         style="@style/text_style_text_01"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/background_gray_frame"
+        android:background="@drawable/background_frame_grey_bright"
         android:padding="16dp"
         android:textSize="15sp" />
 

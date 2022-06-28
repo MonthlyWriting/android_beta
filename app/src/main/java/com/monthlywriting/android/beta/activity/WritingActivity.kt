@@ -62,8 +62,15 @@ class WritingActivity : AppCompatActivity() {
     }
 
     private fun setData(year: Int, month: Int) {
-        viewModel.getMonthlyGoalList(year, month)
-        viewModel.getMonthlyWriting(year, month)
+        if (viewModel.monthlyGoalTempList.value != null) {
+            viewModel.saveWriting()
+        } else {
+            viewModel.getMonthlyGoalList(year, month)
+        }
+    }
+
+    fun getCurrentYear(): Int {
+        return args.year
     }
 
     fun getCurrentMonth(): Int {
@@ -76,7 +83,7 @@ class WritingActivity : AppCompatActivity() {
     }
 
     fun getAllPhotoList() {
-        viewModel.getAllPhotoList(args.year, args.month)
+        viewModel.getPhotoList(args.year, args.month)
     }
 
     fun toggleSaveBtn(toShow: Boolean, function: () -> Unit) {

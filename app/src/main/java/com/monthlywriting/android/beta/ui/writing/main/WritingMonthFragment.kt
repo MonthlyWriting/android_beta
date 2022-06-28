@@ -23,7 +23,6 @@ class WritingMonthFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel: WritingMonthViewModel by viewModels()
-    private val args: WritingMonthFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

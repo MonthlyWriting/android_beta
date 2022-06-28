@@ -3,42 +3,70 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginBottom="18dp">
+    android:layout_marginBottom="24dp">
 
     <RelativeLayout
         android:id="@+id/rl_goal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toTopOf="@id/tv_writing"
+        android:background="@drawable/background_frame_skin"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tv_evaluation"
+            style="@style/text_style_text_01"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
             android:background="@drawable/rating_border"
-            android:gravity="center" />
+            android:gravity="center"
+            android:text="@string/text_click" />
 
         <TextView
             android:id="@+id/tv_goal"
             style="@style/text_style_title_01"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginHorizontal="16dp"
+            android:layout_toStartOf="@id/iv_memo_drawer"
+            android:layout_toEndOf="@id/tv_evaluation" />
+
+        <ImageView
+            android:id="@+id/iv_memo_drawer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
             android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"
-            android:layout_toEndOf="@id/tv_evaluation" />
+            android:layout_marginEnd="12dp"
+            android:src="@drawable/ic_drawer_down" />
     </RelativeLayout>
 
     <TextView
         android:id="@+id/tv_writing"
-        style="@style/text_style_text_01"
+        style="@style/text_style_edit_01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="16dp"
         android:gravity="start|top"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/rl_goal" />
+
+    <EditText
+        android:id="@+id/et_writing"
+        style="@style/text_style_edit_02"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@null"
+        android:gravity="start|top"
+        android:hint="@string/hint_monthly_writing_long"
+        android:importantForAutofill="no"
+        android:inputType="textMultiLine"
+        android:paddingBottom="16dp"
+        android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rl_goal" />
 </androidx.constraintlayout.widget.ConstraintLayout>

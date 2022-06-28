@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginBottom="8dp"
-    android:background="@drawable/background_skin_frame">
+    android:background="@drawable/background_frame_skin">
 
     <TextView
         android:id="@+id/tv_goal"

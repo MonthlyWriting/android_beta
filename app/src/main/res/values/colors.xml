@@ -11,10 +11,11 @@
     <color name="color_979797">#FF979797</color>
     <color name="color_DDE0E5">#FFDDE0E5</color>
     <color name="color_FEFCF0">#FFFEFCF0</color>
-    <color name="color_785247">#FF785247</color>
+    <color name="color_brown">#FF785247</color>
     <color name="color_skin">#FFFFFCF9</color>
     <color name="color_jjinskin">#FFFBEEDC</color>
     <color name="color_jjinbam">#FF382F28</color>
     <color name="color_edittext">#FF676565</color>
+    <color name="color_click">#FFDCDDDE</color>
 
 </resources>

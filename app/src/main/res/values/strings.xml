@@ -85,7 +85,10 @@
     <string name="dialog_delete_memo_message">삭제된 메모는 다시 확인할 수 없습니다.</string>
 
     <!-- Writing: Main -->
-    <string name="text_title_monthly_writing">월말 결산</string>
+    <string name="text_title_goal">목표</string>
+    <string name="text_title_monthly_write">월말 결산하기</string>
+    <string name="text_save_monthly_writing">월말결산 저장하기</string>
+    <string name="text_click">CLICK</string>
     <string name="text_monthly_writing_chat_main">
         안녕~ 000!\n%1$d월달 월말결산하러 갈까?
     </string>
@@ -113,7 +116,7 @@
 
     <!-- Writing: Writing -->
     <string name="hint_add_writing">나의 한 달을 돌아보고 월말결산을 해보세요.</string>
-    <string name="hint_add_emoji">Emoji\n선택하기</string>
+    <string name="hint_add_emoji">이모티콘\n선택하기</string>
 
     <string name="text_title_writing">한달 기록</string>
     <string name="text_evaluate">평가하기</string>

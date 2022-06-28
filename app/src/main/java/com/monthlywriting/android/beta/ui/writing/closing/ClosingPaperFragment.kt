@@ -54,7 +54,11 @@ class ClosingPaperFragment : Fragment() {
 
     private fun setRecyclerView() {
         binding.rvMonthlyWriting.apply {
-            adapter = ClosingPaperWritingAdapter()
+            adapter = ClosingPaperWritingAdapter(
+                isEditable = false,
+                selectIndex = { },
+                saveTempList = { _, _ -> }
+            )
             layoutManager = LinearLayoutManager(requireContext())
         }
 
@@ -73,7 +77,7 @@ class ClosingPaperFragment : Fragment() {
         }
 
         (activity as WritingActivity).getAllPhotoList()
-        activityViewModel.allPhotoList.observe(viewLifecycleOwner) {
+        activityViewModel.photoList.observe(viewLifecycleOwner) {
             (binding.rvMonthlyPhoto.adapter as MonthlyGoalPhotoAdapter).differ.submitList(it)
         }
     }
@@ -81,7 +85,7 @@ class ClosingPaperFragment : Fragment() {
     private fun openMomentz(position: Int) {
         val fragment = PhotoDetailFragment.newInstance(
             position,
-            activityViewModel.allPhotoList.value!!,
+            activityViewModel.photoList.value!!,
             "월말결산"
         )
 

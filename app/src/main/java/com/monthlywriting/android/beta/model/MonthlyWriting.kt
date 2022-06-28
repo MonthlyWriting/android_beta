@@ -11,5 +11,6 @@ data class MonthlyWriting(
     @ColumnInfo(name = "year") val year: Int,
     @ColumnInfo(name = "month") val month: Int,
     @ColumnInfo(name = "writing") var writing: String?,
+    @ColumnInfo(name = "rating") var rating: HashMap<String, Any>,
     @ColumnInfo(name = "photo_list") var photoList: MutableList<String>,
 )

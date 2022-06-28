@@ -76,7 +76,7 @@ class WritingLongFragment : Fragment() {
                         launchGalleryLauncher(galleryLauncher)
                     }
                 },
-                openMomentz = { position -> openMomentz(position) },
+                openMomentz = { },
                 isEditable = true
             )
             layoutManager = LinearLayoutManager(requireContext()).also {
@@ -85,16 +85,11 @@ class WritingLongFragment : Fragment() {
             addItemDecoration(HorizontalMarginDecoration(requireContext()))
             smoothScrollToPosition(0)
         }
-
-        activityViewModel.selectedGoalPhotoList.observe(viewLifecycleOwner) {
-            val list = it.toMutableList().also { list -> list.add(0, "") }
-            (binding.rvPhoto.adapter as MonthlyGoalPhotoAdapter).differ.submitList(list)
-        }
     }
 
     private fun setFunction() {
         binding.tvDrawerDailyMemo.setOnClickListener {
-            it.findNavController().navigate(R.id.open_memo_bottom_sheet)
+//            it.findNavController().navigate(R.id.open_memo_bottom_sheet)
         }
 
         (activity as WritingActivity).toggleSaveBtn(true) {
@@ -113,17 +108,6 @@ class WritingLongFragment : Fragment() {
             { filePath -> activityViewModel.insertGoalPhoto(filePath) }
     }
 
-    private fun openMomentz(position: Int) {
-        val fragment = PhotoDetailFragment.newInstance(
-            position,
-            activityViewModel.selectedGoalPhotoList.value!!,
-            currentGoal.goal
-        )
-
-        requireActivity().supportFragmentManager.beginTransaction()
-            .add(R.id.full_container, fragment)
-            .commit()
-    }
 
     override fun onDestroyView() {
         super.onDestroyView()

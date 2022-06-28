@@ -1,38 +1,32 @@
-package com.monthlywriting.android.beta.ui.writing.shorts
+package com.monthlywriting.android.beta.ui.writing.main
 
+import android.app.Dialog
 import android.content.Context
-import android.graphics.Typeface
+import android.graphics.Point
+import android.os.Build
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import android.text.Editable
-import android.text.SpannableStringBuilder
 import android.text.TextWatcher
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.MotionEvent
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import android.view.inputmethod.InputMethodManager
 import android.widget.SeekBar
 import android.widget.Toast
-import androidx.core.content.res.ResourcesCompat
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
-import androidx.navigation.findNavController
 import com.monthlywriting.android.beta.R
 import com.monthlywriting.android.beta.activity.WritingActivityViewModel
-import com.monthlywriting.android.beta.databinding.FragmentWritingShortBinding
+import com.monthlywriting.android.beta.databinding.FragmentWritingShortDialogBinding
 import com.monthlywriting.android.beta.model.MonthlyGoal
-import com.monthlywriting.android.beta.util.CustomTypefaceSpan
+import com.monthlywriting.android.beta.ui.writing.shorts.WritingShortViewModel
 import com.vanniktech.emoji.EmojiPopup
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class WritingShortFragment : Fragment() {
+class WritingShortDialogFragment : DialogFragment() {
 
-    private var _binding: FragmentWritingShortBinding? = null
+    private var _binding: FragmentWritingShortDialogBinding? = null
     private val binding get() = _binding!!
 
     private val activityViewModel: WritingActivityViewModel by activityViewModels()
@@ -40,14 +34,16 @@ class WritingShortFragment : Fragment() {
 
     private lateinit var currentGoal: MonthlyGoal
     private var checkedType = "emoji"
-    private var isSet: Boolean = false
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
     ): View {
         _binding =
-            DataBindingUtil.inflate(inflater, R.layout.fragment_writing_short, container, false)
+            DataBindingUtil.inflate(inflater,
+                R.layout.fragment_writing_short_dialog,
+                container,
+                false)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this.viewLifecycleOwner
         return binding.root
@@ -56,28 +52,42 @@ class WritingShortFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         currentGoal = activityViewModel.selectedGoal.value!!
 
-        setChatText()
         setRadioFunction()
         setEmojiFunction()
         setPercentageFunction()
         setRatingbarFunction()
         setLevelFunction()
         setInitialData()
-        setVisibility()
         setFunction()
     }
 
-    private fun setChatText() {
-        val font = CustomTypefaceSpan(Typeface.create(ResourcesCompat.getFont(
-            requireContext(), R.font.font_pretendard_semibold), Typeface.NORMAL))
+    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
+        val dialog = Dialog(requireContext(), R.style.transparent_dialog)
+        dialog.apply {
+            setCanceledOnTouchOutside(true)
+        }
+        return dialog
+    }
 
-        binding.tvChatShort1.text =
-            SpannableStringBuilder(resources.getString(R.string.text_monthly_writing_chat_short_1,
-                currentGoal.goal)).also { it.setSpan(font, 0, it.lines()[0].length, 0) }
+    override fun onResume() {
+        super.onResume()
 
-        binding.tvChatShort2.text =
-            SpannableStringBuilder(resources.getString(R.string.text_monthly_writing_chat_short_2,
-                currentGoal.goal)).also { it.setSpan(font, 0, it.split("는\n")[0].length, 0) }
+        val windowManager = context?.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+
+        if (Build.VERSION.SDK_INT < 30) {
+            val display = windowManager.defaultDisplay
+            val size = Point()
+            display.getSize(size)
+            val x = (size.x * 0.95).toInt()
+
+            this.dialog?.window?.setLayout(x, -2)
+
+        } else {
+            val rect = windowManager.currentWindowMetrics.bounds
+            val x = (rect.width() * 0.95).toInt()
+
+            this.dialog?.window?.setLayout(x, -2)
+        }
     }
 
     private fun setRadioFunction() {
@@ -194,12 +204,6 @@ class WritingShortFragment : Fragment() {
         val rating = currentGoal.rating
         val value = rating.getValue(rating.keys.first())
         checkedType = rating.keys.first()
-        if (value != "") {
-            isSet = true
-        }
-
-        binding.tvEvaluation.text = value.toString()
-        binding.tvGoal.text = currentGoal.goal
 
         when (rating.keys.first()) {
             "emoji" -> {
@@ -246,93 +250,12 @@ class WritingShortFragment : Fragment() {
         }
     }
 
-    private fun setVisibility() {
-        binding.apply {
-
-            listOf(
-                tvChatShort1,
-                tvChatShort2,
-                tvChatShort3,
-                rgType,
-                rlRating,
-                rlSavedRating,
-                btnSaveRating,
-                btnStopMonthlyWriting,
-                btnContinueMonthlyWriting
-            ).forEach {
-                it.visibility = View.GONE
-            }
-
-            if (isSet) {
-                setVisibleAnimation(
-                    listOf(
-                        tvChatShort1,
-                        rgType,
-                        rlRating,
-                        btnSaveRating,
-                        tvChatShort2,
-                        rlSavedRating,
-                        tvChatShort3,
-                        btnContinueMonthlyWriting,
-                        btnStopMonthlyWriting))
-            } else {
-                setVisibleAnimation(
-                    listOf(
-                        tvChatShort1,
-                        rgType,
-                        rlRating,
-                        btnSaveRating))
-            }
-        }
-    }
-
     private fun setFunction() {
         binding.apply {
-            btnSaveRating.setOnClickListener {
+            ivSave.setOnClickListener {
                 saveRating()
-            }
-
-            btnStopMonthlyWriting.setOnClickListener {
-                it.findNavController().navigateUp()
-            }
-
-            btnContinueMonthlyWriting.setOnClickListener {
-
-            }
-
-            root.setOnTouchListener { view, motionEvent ->
-                when (motionEvent.action) {
-                    MotionEvent.ACTION_DOWN -> {
-                        if (isSet) {
-                            listOf(
-                                tvChatShort1,
-                                rgType,
-                                rlRating,
-                                btnSaveRating,
-                                tvChatShort2,
-                                rlSavedRating,
-                                tvChatShort3,
-                                btnContinueMonthlyWriting,
-                                btnStopMonthlyWriting).forEach {
-                                it.clearAnimation()
-                                it.visibility = View.VISIBLE
-                            }
-                        } else {
-                            listOf(
-                                tvChatShort1,
-                                rgType,
-                                rlRating,
-                                btnSaveRating).forEach {
-                                it.clearAnimation()
-                                it.visibility = View.VISIBLE
-                            }
-                        }
-
-                    }
-                }
-
-                view.performClick()
-                false
+                dismiss()
+                // recyclerview refresh 하기
             }
         }
     }
@@ -362,33 +285,9 @@ class WritingShortFragment : Fragment() {
             Toast.makeText(requireContext(), R.string.toast_no_retrospect_input, Toast.LENGTH_SHORT)
                 .show()
         } else {
-            if (!isSet) {
-                setVisibleAnimation(
-                    listOf(binding.tvChatShort2,
-                        binding.rlSavedRating,
-                        binding.tvChatShort3,
-                        binding.btnContinueMonthlyWriting,
-                        binding.btnStopMonthlyWriting))
-                isSet = true
-            }
-
             val rating = hashMapOf(checkedType to evaluation)
+
             activityViewModel.insertRating(currentGoal.id, rating)
-        }
-
-        binding.tvEvaluation.text = evaluation.toString()
-    }
-
-    private fun setVisibleAnimation(list: List<View>) {
-        var time: Long = 0
-        list.forEach {
-            Handler(Looper.getMainLooper()).postDelayed({
-                it.visibility = View.VISIBLE
-                it.animate()
-                    .alpha(1.0f)
-                    .duration = 800
-            }, time)
-            time += 400
         }
     }
 

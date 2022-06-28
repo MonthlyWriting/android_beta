@@ -1,22 +1,28 @@
 package com.monthlywriting.android.beta.ui.writing.main
 
-import android.graphics.Typeface
+import android.content.Intent
 import android.os.Bundle
-import android.text.SpannableStringBuilder
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.content.res.ResourcesCompat
+import androidx.activity.result.ActivityResultLauncher
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monthlywriting.android.beta.R
 import com.monthlywriting.android.beta.activity.WritingActivity
 import com.monthlywriting.android.beta.activity.WritingActivityViewModel
-import com.monthlywriting.android.beta.adapter.WritingGoalAdapter
+import com.monthlywriting.android.beta.adapter.ClosingPaperWritingAdapter
+import com.monthlywriting.android.beta.adapter.GridMarginDecoration
+import com.monthlywriting.android.beta.adapter.MonthlyGoalPhotoAdapter
 import com.monthlywriting.android.beta.databinding.FragmentWritingMainBinding
-import com.monthlywriting.android.beta.util.CustomTypefaceSpan
+import com.monthlywriting.android.beta.ui.goal.detail.PhotoDetailFragment
+import com.monthlywriting.android.beta.util.checkPermission
+import com.monthlywriting.android.beta.util.getGalleryLauncher
+import com.monthlywriting.android.beta.util.launchGalleryLauncher
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -27,6 +33,8 @@ class WritingMainFragment : Fragment() {
 
     private val activityViewModel: WritingActivityViewModel by activityViewModels()
 
+    private lateinit var galleryLauncher: ActivityResultLauncher<Intent>
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?,
@@ -36,41 +44,84 @@ class WritingMainFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setChatText()
+        setGalleryLauncher()
         setRecyclerView()
         setFunction()
     }
 
-    private fun setChatText() {
-        val text =
-            SpannableStringBuilder(resources.getString(R.string.text_monthly_writing_chat_main,
-                (activity as WritingActivity).getCurrentMonth()))
-
-        val font = CustomTypefaceSpan(Typeface.create(ResourcesCompat.getFont(
-            requireContext(), R.font.font_pretendard_semibold), Typeface.NORMAL))
-
-        text.setSpan(font, 9, 17, 0)
-
-        binding.tvChatMain.text = text
-    }
-
     private fun setRecyclerView() {
         binding.rvGoal.apply {
-            adapter = WritingGoalAdapter { index -> activityViewModel.selectGoal(index) }
+            adapter = ClosingPaperWritingAdapter(
+                isEditable = true,
+                selectIndex = { index -> selectIndex(index) },
+                saveTempList = { index, writing -> saveTempList(index, writing) }
+            )
             layoutManager = LinearLayoutManager(requireContext())
         }
 
         activityViewModel.monthlyGoalList.observe(viewLifecycleOwner) {
-            (binding.rvGoal.adapter as WritingGoalAdapter).differ.submitList(it)
+            (binding.rvGoal.adapter as ClosingPaperWritingAdapter).apply {
+                differ.submitList(it)
+                notifyDataSetChanged()
+            }
         }
+
+        binding.rvPhoto.apply {
+            adapter = MonthlyGoalPhotoAdapter(
+                launchGallery = {
+                    checkPermission(requireActivity()) {
+                        launchGalleryLauncher(galleryLauncher)
+                    }
+                },
+                openMomentz = { position -> openMomentz(position) },
+                isEditable = true
+            )
+            layoutManager = GridLayoutManager(requireContext(), 4)
+            addItemDecoration(GridMarginDecoration(requireContext()))
+        }
+
+        (activity as WritingActivity).getAllPhotoList()
+        activityViewModel.photoList.observe(viewLifecycleOwner) {
+            val list = it.toMutableList().also { list -> list.add(0, "") }
+            (binding.rvPhoto.adapter as MonthlyGoalPhotoAdapter).differ.submitList(list)
+        }
+    }
+
+    private fun setGalleryLauncher() {
+        galleryLauncher =
+            getGalleryLauncher(requireContext(), this) {}
+        //{ filePath -> viewModel.insertPhoto(filePath) }
+    }
+
+    private fun openMomentz(position: Int) {
+        val fragment = PhotoDetailFragment.newInstance(
+            position,
+            activityViewModel.photoList.value!!,
+            "월말결산" // 화면에 따른 제목 변경을 momentz 에서 사용하는 방법 ?
+        )
+
+        requireActivity().supportFragmentManager.beginTransaction()
+            .add(R.id.full_container, fragment)
+            .commit()
     }
 
     private fun setFunction() {
-        binding.btnClosingPaper.setOnClickListener {
-            it.findNavController().navigate(R.id.nav_closing_paper)
+        binding.tvSave.setOnClickListener {
+
         }
     }
 
+    private fun selectIndex(index: Int) {
+        activityViewModel.selectedIndex = index
+        activityViewModel.getSelectedGoal(
+            (activity as WritingActivity).getCurrentYear(),
+            (activity as WritingActivity).getCurrentMonth()
+        )
+    }
+
+    private fun saveTempList(index: Int, writing: String) {
+        activityViewModel.saveTempWriting(index, writing)
+    }
 
     override fun onDestroyView() {
         super.onDestroyView()

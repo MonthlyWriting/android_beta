@@ -26,7 +26,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="56dp"
                 android:gravity="center_vertical|start"
-                android:text="@string/text_title_monthly_writing" />
+                android:text="@string/text_title_monthly_write" />
 
             <TextView
                 android:id="@+id/tv_chat_short_1"
@@ -103,7 +103,7 @@
                         android:id="@+id/tv_emoji_rating"
                         android:layout_width="60dp"
                         android:layout_height="60dp"
-                        android:background="@drawable/background_darker_gray_frame"
+                        android:background="@drawable/background_frame_grey_dark"
                         android:gravity="center"
                         android:text="@{viewModel.textEmoji}" />
 
@@ -112,7 +112,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:background="@drawable/background_darker_gray_frame"
+                        android:background="@drawable/background_frame_grey_dark"
                         android:fontFamily="@font/pretendard_semibold"
                         android:hint="@string/hint_add_emoji"
                         android:includeFontPadding="false"
@@ -189,7 +189,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="37dp"
-                    android:background="@drawable/background_darker_gray_frame"
+                    android:background="@drawable/background_frame_grey_dark"
                     android:gravity="center"
                     android:orientation="horizontal"
                     android:paddingHorizontal="38dp"
@@ -228,7 +228,7 @@
                 android:layout_gravity="end"
                 android:layout_marginTop="16dp"
                 android:layout_marginBottom="24dp"
-                android:background="@drawable/background_brown_frame"
+                android:background="@drawable/background_frame_jjinskin"
                 android:paddingHorizontal="52dp"
                 android:paddingVertical="12dp"
                 android:text="@string/text_save_rating" />
@@ -289,7 +289,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="24dp"
                     android:layout_weight="1"
-                    android:background="@drawable/background_gray_frame"
+                    android:background="@drawable/background_frame_grey_bright"
                     android:gravity="center"
                     android:paddingVertical="12dp"
                     android:text="@string/text_stop_monthly_writing" />
@@ -300,7 +300,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:background="@drawable/background_brown_frame"
+                    android:background="@drawable/background_frame_jjinskin"
                     android:gravity="center"
                     android:paddingVertical="12dp"
                     android:text="@string/text_continue_monthly_writing" />

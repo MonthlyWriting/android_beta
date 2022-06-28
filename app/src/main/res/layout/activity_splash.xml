@@ -13,7 +13,7 @@
         android:fontFamily="@font/font_pretendard_semibold"
         android:includeFontPadding="false"
         android:text="@string/monthly_writing"
-        android:textColor="@color/color_785247"
+        android:textColor="@color/color_brown"
         android:textSize="40sp"
         app:drawableTopCompat="@drawable/ic_img_bear_big"
         app:layout_constraintBottom_toBottomOf="parent"

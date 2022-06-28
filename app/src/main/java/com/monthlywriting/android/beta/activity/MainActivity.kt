@@ -1,10 +1,8 @@
 package com.monthlywriting.android.beta.activity
 
-import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.FrameLayout
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
@@ -73,6 +71,8 @@ class MainActivity : AppCompatActivity() {
             openGuide()
             App.prefs.guidePref = true
         }
+
+        viewModel.insertWriting()
     }
 
     override fun onSupportNavigateUp(): Boolean {

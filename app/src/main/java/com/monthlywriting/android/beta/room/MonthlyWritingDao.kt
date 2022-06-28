@@ -27,6 +27,9 @@ interface MonthlyWritingDao {
     @Query("Update monthly_writing Set photo_list = :photoList WHERE id = :id ")
     fun updatePhotoList(id: Int, photoList: MutableList<String>)
 
+    @Query("Update monthly_writing Set rating = :rating WHERE id = :id ")
+    fun updateRating(id: Int, rating: HashMap<String, Any>)
+
 //    @Query("Update monthly_writing Set writing = :writing WHERE id = :id ")
 //    fun updateWriting(id: String, writing: String)
 

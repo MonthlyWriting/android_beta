@@ -29,6 +29,7 @@ class WritingMonthViewModel @Inject constructor(
                     year = year,
                     month = month,
                     writing = writing,
+                    rating = hashMapOf("emoji" to ""),
                     photoList = photoList
                 )
             )

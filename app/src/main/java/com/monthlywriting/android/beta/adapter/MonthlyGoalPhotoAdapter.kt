@@ -1,6 +1,5 @@
 package com.monthlywriting.android.beta.adapter
 
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -57,7 +56,6 @@ class MonthlyGoalPhotoAdapter(
 
         fun setData() {
             binding.root.layoutParams = ViewGroup.LayoutParams(width, width / 24 * 33)
-            Log.d("test", width.toString())
 
             when (isEditable) {
                 true -> {
