@@ -7,9 +7,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.activity.result.ActivityResultLauncher
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monthlywriting.android.beta.R
@@ -89,8 +91,8 @@ class WritingMainFragment : Fragment() {
 
     private fun setGalleryLauncher() {
         galleryLauncher =
-            getGalleryLauncher(requireContext(), this) {}
-        //{ filePath -> viewModel.insertPhoto(filePath) }
+            getGalleryLauncher(requireContext(), this)
+            { filePath -> activityViewModel.insertPhoto(filePath) }
     }
 
     private fun openMomentz(position: Int) {
@@ -107,7 +109,18 @@ class WritingMainFragment : Fragment() {
 
     private fun setFunction() {
         binding.tvSave.setOnClickListener {
+            saveToDatabase()
+        }
+    }
 
+    private fun saveToDatabase() {
+        if (activityViewModel.monthlyGoalTempList.value != null) {
+            activityViewModel.saveAll()
+            findNavController().navigate(R.id.open_closing_loading)
+        } else {
+            Toast.makeText(requireContext(),
+                resources.getString(R.string.toast_no_content),
+                Toast.LENGTH_SHORT).show()
         }
     }
 

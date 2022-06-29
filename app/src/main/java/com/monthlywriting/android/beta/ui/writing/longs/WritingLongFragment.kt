@@ -105,7 +105,7 @@ class WritingLongFragment : Fragment() {
     private fun setGalleryLauncher() {
         galleryLauncher =
             getGalleryLauncher(requireContext(), this)
-            { filePath -> activityViewModel.insertGoalPhoto(filePath) }
+            { filePath -> activityViewModel.insertPhoto(filePath) }
     }
 
 

@@ -20,6 +20,8 @@
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_setting_selected.xml" value="0.104" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_setting_unselected.xml" value="0.104" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_drawer_up.xml" value="0.292" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_img_bear.xml" value="0.222" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_img_loading_bear.xml" value="0.222" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_level_fair_selected.xml" value="0.1835" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_level_good_selected.xml" value="0.1835" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_level_good_unselected.xml" value="0.1835" />
@@ -40,6 +42,7 @@
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_splash.xml" value="0.18465045592705168" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_walk_through.xml" value="0.3796875" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_authority.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_closing_loading.xml" value="0.23020833333333332" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_closing_paper.xml" value="0.28802083333333334" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_goal_add.xml" value="0.18465045592705168" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_goal_detail.xml" value="0.2341485507246377" />

@@ -11,14 +11,14 @@
         android:label="fragment_writing_main"
         tools:layout="@layout/fragment_writing_main">
         <action
-            android:id="@+id/open_closing_paper"
-            app:destination="@id/nav_closing_paper" />
-        <action
             android:id="@+id/open_memo_bottom_sheet"
             app:destination="@id/nav_memo_bottom_sheet" />
         <action
             android:id="@+id/open_writing_short"
             app:destination="@id/nav_writing_short" />
+        <action
+            android:id="@+id/open_closing_loading"
+            app:destination="@id/nav_closing_loading" />
     </fragment>
 
     <dialog
@@ -38,5 +38,15 @@
         android:name="com.monthlywriting.android.beta.ui.writing.main.WritingShortDialogFragment"
         android:label="fragment_writing_short_dialog"
         tools:layout="@layout/fragment_writing_short_dialog" />
+
+    <fragment
+        android:id="@+id/nav_closing_loading"
+        android:name="com.monthlywriting.android.beta.ui.writing.closing.ClosingLoadingFragment"
+        android:label="fragment_closing_loading"
+        tools:layout="@layout/fragment_closing_loading" >
+        <action
+            android:id="@+id/open_closing_paper"
+            app:destination="@id/nav_closing_paper" />
+    </fragment>
 
 </navigation>

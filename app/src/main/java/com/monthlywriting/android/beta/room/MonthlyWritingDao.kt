@@ -30,6 +30,9 @@ interface MonthlyWritingDao {
     @Query("Update monthly_writing Set rating = :rating WHERE id = :id ")
     fun updateRating(id: Int, rating: HashMap<String, Any>)
 
+    @Query("Update monthly_writing Set writing = :writing WHERE id = :id ")
+    fun updateWriting(id: Int, writing: String)
+
 //    @Query("Update monthly_writing Set writing = :writing WHERE id = :id ")
 //    fun updateWriting(id: String, writing: String)
 

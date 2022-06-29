@@ -89,6 +89,8 @@
     <string name="text_title_monthly_write">월말 결산하기</string>
     <string name="text_save_monthly_writing">월말결산 저장하기</string>
     <string name="text_click">CLICK</string>
+    <string name="toast_no_content">내용을 입력해주세요!</string>
+
     <string name="text_monthly_writing_chat_main">
         안녕~ 000!\n%1$d월달 월말결산하러 갈까?
     </string>
@@ -103,6 +105,13 @@
 
     <string name="text_continue_monthly_writing">작성하러 가기😄</string>
     <string name="text_stop_monthly_writing">여기서 그만하기😥</string>
+
+    <!-- Closing Loading -->
+    <string-array name="text_closing_loading">
+        <item>월말결산서 만드는 중.</item>
+        <item>월말결산서 만드는 중..</item>
+        <item>월말결산서 만드는 중...</item>
+    </string-array>
 
     <!-- Closing Paper -->
     <string name="text_closing_paper_chat">000를 위한\n%1$d월 월말결산서</string>

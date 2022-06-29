@@ -36,6 +36,11 @@ class WritingRepository @Inject constructor(
             return@withContext monthlyWritingDao.updateRating(id, rating)
         }
 
+    suspend fun updateWriting(id: Int, writing: String) =
+        withContext(Dispatchers.IO) {
+            return@withContext monthlyWritingDao.updateWriting(id, writing)
+        }
+
 //    suspend fun updateWriting(id: String, writing: String) = withContext(Dispatchers.IO) {
 //        return@withContext monthlyWritingDao.updateWriting(id, writing)
 //    }

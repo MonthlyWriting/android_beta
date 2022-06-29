@@ -73,6 +73,21 @@ class WritingActivityViewModel @Inject constructor(
         }
     }
 
+    fun saveAll() {
+        viewModelScope.launch {
+            val list = _monthlyGoalTempList.value!!
+            list.forEachIndexed { index, monthlyGoal ->
+                if (index == list.lastIndex) {
+                    writingRepository.updateWriting(monthlyGoal.id, monthlyGoal.writing ?: "")
+                } else {
+                    goalRepository.updateWriting(monthlyGoal.id, monthlyGoal.writing ?: "")
+                }
+            }
+
+            _monthlyGoalList.value = list
+        }
+    }
+
     fun getPhotoList(year: Int, month: Int) {
         viewModelScope.launch {
             val photoList = mutableListOf<String>()
@@ -113,24 +128,14 @@ class WritingActivityViewModel @Inject constructor(
         }
     }
 
-
-    fun insertGoalPhoto(newPhotoPath: String) {
-        viewModelScope.launch {
-//            val currentPhotoList = _selectedGoalPhotoList.value?.toMutableList() ?: mutableListOf()
-//            currentPhotoList.add(newPhotoPath)
-//
-//            goalRepository.updatePhotoList(_selectedGoal.value?.id!!, currentPhotoList)
-//            _selectedGoalPhotoList.value = currentPhotoList
-        }
-    }
-
     fun insertPhoto(newPhotoPath: String) {
         viewModelScope.launch {
-//            val currentPhotoList = _monthlyPhotoList.value?.toMutableList() ?: mutableListOf()
-//            currentPhotoList.add(newPhotoPath)
-//
-//            writingRepository.updatePhotoList(_monthlyWriting.value?.id!!, currentPhotoList)
-//            _monthlyPhotoList.value = currentPhotoList
+            val currentPhotoList = _photoList.value?.toMutableList() ?: mutableListOf()
+            currentPhotoList.add(newPhotoPath)
+            val l = _monthlyGoalList.value
+
+            writingRepository.updatePhotoList(l!![l.lastIndex].id, currentPhotoList)
+            _photoList.value = currentPhotoList
         }
     }
 
