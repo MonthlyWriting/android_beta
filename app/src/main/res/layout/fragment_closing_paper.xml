@@ -7,28 +7,40 @@
     tools:context=".ui.writing.closing.ClosingPaperFragment">
 
     <TextView
-        android:id="@+id/tv_chat_short_1"
-        style="@style/text_style_chat_received"
+        android:id="@+id/tv_title"
+        style="@style/text_style_title_01"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
+        android:background="@drawable/background_frame_jjinskin"
+        android:gravity="center"
+        android:padding="16dp"
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="33dp"
+        android:layout_marginVertical="16dp"
         android:overScrollMode="never"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_chat_short_1">
+        app:layout_constraintTop_toBottomOf="@id/tv_title">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
+            <TextView
+                android:id="@+id/tv_title_goal"
+                style="@style/text_style_title_01"
+                android:layout_width="match_parent"
+                android:layout_height="56dp"
+                android:gravity="start|center_vertical"
+                android:paddingHorizontal="4dp"
+                android:text="@string/text_title_goal"
+                app:layout_constraintTop_toTopOf="parent" />
+
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_monthly_writing"
+                android:id="@+id/rv_goal"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:overScrollMode="never" />
@@ -44,7 +56,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rv_monthly_photo"
+                android:id="@+id/rv_photo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:nestedScrollingEnabled="false"

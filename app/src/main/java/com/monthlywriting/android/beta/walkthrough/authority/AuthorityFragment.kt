@@ -31,14 +31,7 @@ class AuthorityFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        val font = CustomTypefaceSpan(Typeface.create(ResourcesCompat.getFont(
-            requireContext(), R.font.font_pretendard_semibold), Typeface.NORMAL))
-
-        binding.tvAuthorityChat.text =
-        SpannableStringBuilder(resources.getString(R.string.text_authority_chat,
-            App.prefs.namePref)).also {
-            it.setSpan(font, 0, it.split("님!")[0].length, 0)
-        }
+        setTextFont()
 
         binding.btnNotificationFalse.setOnClickListener {
             startMainActivity()
@@ -47,6 +40,17 @@ class AuthorityFragment : Fragment() {
         binding.btnNotificationTrue.setOnClickListener {
             startMainActivity()
         }
+    }
+
+    private fun setTextFont() {
+        val font = CustomTypefaceSpan(Typeface.create(ResourcesCompat.getFont(
+            requireContext(), R.font.font_pretendard_semibold), Typeface.NORMAL))
+
+        binding.tvAuthorityChat.text =
+            SpannableStringBuilder(resources.getString(R.string.text_authority_chat,
+                App.prefs.namePref)).also {
+                it.setSpan(font, 0, it.split("님!")[0].length, 0)
+            }
     }
 
     private fun startMainActivity() {

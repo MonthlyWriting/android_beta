@@ -71,7 +71,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="12dp"
-        android:background="@drawable/backgroudn_frame_brown"
+        android:background="@drawable/background_frame_brown"
         android:gravity="center"
         android:paddingVertical="13dp"
         android:text="@string/text_save_monthly_writing"

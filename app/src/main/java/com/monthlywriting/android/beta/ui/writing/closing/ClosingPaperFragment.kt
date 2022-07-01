@@ -1,5 +1,6 @@
 package com.monthlywriting.android.beta.ui.writing.closing
 
+import android.content.Intent
 import android.graphics.Typeface
 import android.os.Bundle
 import android.text.SpannableStringBuilder
@@ -7,18 +8,25 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.activityViewModels
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monthlywriting.android.beta.R
+import com.monthlywriting.android.beta.activity.MainActivity
 import com.monthlywriting.android.beta.activity.WritingActivity
 import com.monthlywriting.android.beta.activity.WritingActivityViewModel
 import com.monthlywriting.android.beta.adapter.ClosingPaperWritingAdapter
 import com.monthlywriting.android.beta.adapter.GridMarginDecoration
 import com.monthlywriting.android.beta.adapter.MonthlyGoalPhotoAdapter
 import com.monthlywriting.android.beta.databinding.FragmentClosingPaperBinding
+import com.monthlywriting.android.beta.di.App
 import com.monthlywriting.android.beta.ui.goal.detail.PhotoDetailFragment
+import com.monthlywriting.android.beta.ui.main.home.HomeFragmentDirections
+import com.monthlywriting.android.beta.util.CurrentInfo
 import com.monthlywriting.android.beta.util.CustomTypefaceSpan
 
 class ClosingPaperFragment : Fragment() {
@@ -37,36 +45,41 @@ class ClosingPaperFragment : Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        setChatText()
+        setTextFont()
         setRecyclerView()
+        handleBackAction()
     }
 
-    private fun setChatText() {
+    private fun setTextFont() {
         val font = CustomTypefaceSpan(Typeface.create(ResourcesCompat.getFont(
             requireContext(), R.font.font_pretendard_semibold), Typeface.NORMAL))
 
-        binding.tvChatShort1.text =
-            SpannableStringBuilder(resources.getString(R.string.text_closing_paper_chat,
-                (activity as WritingActivity).getCurrentMonth())).also {
-                it.setSpan(font, it.lines()[0].length, it.length, 0)
+        binding.tvTitle.text =
+            SpannableStringBuilder(resources.getString(
+                R.string.text_closing_paper_chat,
+                App.prefs.namePref,
+                (activity as WritingActivity).getCurrentMonth()
+            )).also {
+                it.setSpan(font, 0, it.split("님을")[0].length, 0)
+                it.setSpan(font, it.length - 2, it.length, 0)
             }
     }
 
     private fun setRecyclerView() {
-        binding.rvMonthlyWriting.apply {
+        binding.rvGoal.apply {
             adapter = ClosingPaperWritingAdapter(
                 isEditable = false,
-                selectIndex = { },
+                selectIndex = { index -> selectIndex(index) },
                 saveTempList = { _, _ -> }
             )
             layoutManager = LinearLayoutManager(requireContext())
         }
 
         activityViewModel.monthlyGoalList.observe(viewLifecycleOwner) {
-            (binding.rvMonthlyWriting.adapter as ClosingPaperWritingAdapter).differ.submitList(it)
+            (binding.rvGoal.adapter as ClosingPaperWritingAdapter).differ.submitList(it)
         }
 
-        binding.rvMonthlyPhoto.apply {
+        binding.rvPhoto.apply {
             adapter = MonthlyGoalPhotoAdapter(
                 launchGallery = {},
                 openMomentz = { position -> openMomentz(position) },
@@ -78,8 +91,29 @@ class ClosingPaperFragment : Fragment() {
 
         (activity as WritingActivity).getAllPhotoList()
         activityViewModel.photoList.observe(viewLifecycleOwner) {
-            (binding.rvMonthlyPhoto.adapter as MonthlyGoalPhotoAdapter).differ.submitList(it)
+            (binding.rvPhoto.adapter as MonthlyGoalPhotoAdapter).differ.submitList(it)
         }
+    }
+
+    private fun handleBackAction() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    (activity as WritingActivity).finish()
+
+                    val intent = Intent(requireContext(), MainActivity::class.java)
+                    intent.putExtra("isCollectionAdded", true)
+                    startActivity(intent)
+                }
+            })
+    }
+
+    private fun selectIndex(index: Int) {
+        activityViewModel.selectedIndex = index
+        activityViewModel.getSelectedGoal(
+            (activity as WritingActivity).getCurrentYear(),
+            (activity as WritingActivity).getCurrentMonth()
+        )
     }
 
     private fun openMomentz(position: Int) {

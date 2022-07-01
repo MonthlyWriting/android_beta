@@ -77,11 +77,6 @@ class WritingActivity : AppCompatActivity() {
         return args.month
     }
 
-
-    fun getCurrentMonthName(): String {
-        return resources.getStringArray(R.array.month_name)[args.month - 1]
-    }
-
     fun getAllPhotoList() {
         viewModel.getPhotoList(args.year, args.month)
     }

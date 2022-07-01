@@ -38,7 +38,12 @@ class PhotoDetailFragment : Fragment(), MomentzCallback {
         requireActivity().window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         initializeData()
         startMomentz()
+        handleBackAction()
 
+
+    }
+
+    private fun handleBackAction() {
         requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
             object : OnBackPressedCallback(true) {
                 override fun handleOnBackPressed() {

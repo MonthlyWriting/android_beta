@@ -65,6 +65,10 @@ class ClosingPaperWritingAdapter(
                 binding.tvWriting.visibility = View.VISIBLE
             }
 
+            if (bindingAdapterPosition == differ.currentList.lastIndex) {
+                binding.ivMemoDrawer.visibility = View.GONE
+            }
+
             binding.tvGoal.text = item.goal
             if (item.writing.isNullOrBlank()) {
                 binding.tvWriting.visibility = View.GONE

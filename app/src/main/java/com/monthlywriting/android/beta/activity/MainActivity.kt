@@ -2,10 +2,14 @@ package com.monthlywriting.android.beta.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.view.View
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navArgs
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -73,6 +77,10 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.insertWriting()
+
+        if(intent.getBooleanExtra("isCollectionAdded", false)){
+            showPopupSaved()
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
@@ -139,5 +147,12 @@ class MainActivity : AppCompatActivity() {
         supportFragmentManager.beginTransaction()
             .add(R.id.full_container, fragment)
             .commit()
+    }
+
+    fun showPopupSaved() {
+        binding.ivPopupSaved.visibility = View.VISIBLE
+        Handler(Looper.getMainLooper()).postDelayed({
+            binding.ivPopupSaved.visibility = View.GONE
+        }, 5000)
     }
 }

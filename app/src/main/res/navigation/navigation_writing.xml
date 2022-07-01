@@ -31,7 +31,11 @@
         android:id="@+id/nav_closing_paper"
         android:name="com.monthlywriting.android.beta.ui.writing.closing.ClosingPaperFragment"
         android:label="fragment_closing_paper"
-        tools:layout="@layout/fragment_closing_paper" />
+        tools:layout="@layout/fragment_closing_paper">
+        <action
+            android:id="@+id/open_memo_bottom_sheet"
+            app:destination="@id/nav_memo_bottom_sheet" />
+    </fragment>
 
     <dialog
         android:id="@+id/nav_writing_short"
@@ -43,10 +47,11 @@
         android:id="@+id/nav_closing_loading"
         android:name="com.monthlywriting.android.beta.ui.writing.closing.ClosingLoadingFragment"
         android:label="fragment_closing_loading"
-        tools:layout="@layout/fragment_closing_loading" >
+        tools:layout="@layout/fragment_closing_loading">
         <action
             android:id="@+id/open_closing_paper"
-            app:destination="@id/nav_closing_paper" />
+            app:destination="@id/nav_closing_paper"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

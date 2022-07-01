@@ -114,7 +114,7 @@
     </string-array>
 
     <!-- Closing Paper -->
-    <string name="text_closing_paper_chat">000를 위한\n%1$d월 월말결산서</string>
+    <string name="text_closing_paper_chat">%1$s님을 위한 %2$d월 월말결산서</string>
 
     <!-- Writing: Long -->
     <string name="text_drawer_daily_memo">일일메모</string>

@@ -37,7 +37,7 @@ class ClosingLoadingFragment : Fragment() {
         timer = Timer()
         timer.scheduleAtFixedRate(object : TimerTask() {
             override fun run() {
-                activity!!.runOnUiThread {
+                activity?.runOnUiThread {
                     when (i) {
                         0 -> {
                             binding.tvLoading.text =
