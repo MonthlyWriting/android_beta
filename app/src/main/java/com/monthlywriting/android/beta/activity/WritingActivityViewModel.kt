@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.monthlywriting.android.beta.model.MonthlyGoal
-import com.monthlywriting.android.beta.model.MonthlyWriting
 import com.monthlywriting.android.beta.repository.GoalRepository
 import com.monthlywriting.android.beta.repository.WritingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -37,6 +36,8 @@ class WritingActivityViewModel @Inject constructor(
 
     private val _selectedGoal = MutableLiveData<MonthlyGoal>()
     val selectedGoal: LiveData<MonthlyGoal> get() = _selectedGoal
+
+    private val writingPhotoList = mutableListOf<String>()
 
     var selectedIndex = -1
 
@@ -100,6 +101,7 @@ class WritingActivityViewModel @Inject constructor(
 
             writingRepository.getByMonth(year, month)?.photoList?.forEach {
                 photoList.add(it)
+                writingPhotoList.add(it)
             }
 
             _photoList.value = photoList
@@ -134,7 +136,8 @@ class WritingActivityViewModel @Inject constructor(
             currentPhotoList.add(newPhotoPath)
             val l = _monthlyGoalList.value
 
-            writingRepository.updatePhotoList(l!![l.lastIndex].id, currentPhotoList)
+            writingPhotoList.add(newPhotoPath)
+            writingRepository.updatePhotoList(l!![l.lastIndex].id, writingPhotoList)
             _photoList.value = currentPhotoList
         }
     }

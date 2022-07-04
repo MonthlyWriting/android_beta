@@ -7,15 +7,21 @@
     android:background="@color/color_skin"
     tools:context=".splash.SplashActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/font_pretendard_semibold"
-        android:includeFontPadding="false"
-        android:text="@string/monthly_writing"
-        android:textColor="@color/color_brown"
-        android:textSize="40sp"
-        app:drawableTopCompat="@drawable/ic_img_bear_big"
+    <ImageView
+        android:layout_width="94dp"
+        android:layout_height="64dp"
+        android:layout_marginBottom="20dp"
+        android:src="@drawable/img_splash_bear"
+        app:layout_constraintBottom_toTopOf="@id/iv_text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+
+    <ImageView
+        android:id="@+id/iv_text"
+        android:layout_width="228dp"
+        android:layout_height="60dp"
+        android:src="@drawable/img_splash_text"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"

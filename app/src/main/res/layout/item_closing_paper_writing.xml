@@ -12,16 +12,33 @@
         android:background="@drawable/background_frame_skin"
         app:layout_constraintTop_toTopOf="parent">
 
-        <TextView
-            android:id="@+id/tv_evaluation"
-            style="@style/text_style_text_01"
+        <RelativeLayout
+            android:id="@+id/rl_evaluation"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
-            android:background="@drawable/rating_border"
-            android:gravity="center"
-            android:text="@string/text_click" />
+            android:background="@drawable/rating_border">
+
+            <TextView
+                android:id="@+id/tv_evaluation"
+                style="@style/text_style_text_01"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="@string/text_click" />
+
+            <ImageView
+                android:id="@+id/iv_evaluation_none"
+                android:layout_width="33dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:src="@drawable/img_bear"
+                android:visibility="gone" />
+        </RelativeLayout>
+
 
         <TextView
             android:id="@+id/tv_goal"
@@ -31,7 +48,7 @@
             android:layout_centerVertical="true"
             android:layout_marginHorizontal="16dp"
             android:layout_toStartOf="@id/iv_memo_drawer"
-            android:layout_toEndOf="@id/tv_evaluation" />
+            android:layout_toEndOf="@id/rl_evaluation" />
 
         <ImageView
             android:id="@+id/iv_memo_drawer"

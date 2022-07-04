@@ -74,12 +74,14 @@ class GoalDetailFragment : Fragment() {
             }
             addItemDecoration(HorizontalMarginDecoration(requireContext()))
             smoothScrollToPosition(0)
+            itemAnimator = null
         }
 
 
         binding.rvMemo.apply {
             adapter = DailyMemoAdapter(isEditable = args.isEditable)
             layoutManager = LinearLayoutManager(requireContext())
+            itemAnimator = null
         }
     }
 

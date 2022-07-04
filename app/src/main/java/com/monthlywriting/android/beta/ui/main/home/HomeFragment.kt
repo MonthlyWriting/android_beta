@@ -45,6 +45,7 @@ class HomeFragment : Fragment() {
         binding.rvGoal.apply {
             adapter = MonthlyGoalAdapter { position -> openDetailWithId(position) }
             layoutManager = LinearLayoutManager(requireContext())
+            itemAnimator = null
         }
     }
 
@@ -68,10 +69,9 @@ class HomeFragment : Fragment() {
             }
 
             btnMonthlyWriting.setOnClickListener {
-                (activity as MainActivity).finish()
-
                 val action = HomeFragmentDirections.openMonthlyWriting(currentYear, currentMonth)
                 it.findNavController().navigate(action)
+                (activity as MainActivity).finish()
             }
         }
     }

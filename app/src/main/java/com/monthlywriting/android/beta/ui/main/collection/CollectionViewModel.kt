@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.monthlywriting.android.beta.model.MonthlyGoal
-import com.monthlywriting.android.beta.model.MonthlyWriting
 import com.monthlywriting.android.beta.repository.GoalRepository
 import com.monthlywriting.android.beta.repository.WritingRepository
 import dagger.hilt.android.lifecycle.HiltViewModel

@@ -34,7 +34,6 @@
     <string name="title_writing_retrospect">쓰는</string>
     <string name="title_closing_paper">결산서</string>
 
-
     <!-- Menu -->
     <string name="menu_delete">삭제하기</string>
 
@@ -51,11 +50,14 @@
     <!-- Guide -->
     <string name="text_guide_page_num">%1$d/3</string>
     <string name="text_guide_back">이전</string>
+    <string name="text_guide_next">다음</string>
+    <string name="text_guide_start">시작하기</string>
 
     <!-- Home -->
     <string name="text_goal_num">한달 목표 %1$d</string>
     <string name="text_d_day_monthly_writing">D-%1$d 월말결산</string>
     <string name="text_do_monthly_writing">월말결산</string>
+    <string name="toast_saved_to_collection">월말결산이 모아보기에 추가되었어요!</string>
 
     <!-- Goal: Add -->
     <string name="text_goals">목표</string>
@@ -115,6 +117,8 @@
 
     <!-- Closing Paper -->
     <string name="text_closing_paper_chat">%1$s님을 위한 %2$d월 월말결산서</string>
+    <string name="text_writing_empty">작성한 결산내용이 없어요.</string>
+    <string name="text_photo_empty">기록된 사진이 없어요.</string>
 
     <!-- Writing: Long -->
     <string name="text_drawer_daily_memo">일일메모</string>

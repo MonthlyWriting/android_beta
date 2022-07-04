@@ -41,6 +41,7 @@ class CollectionMonthlyFragment : Fragment() {
         binding.rvGoal.apply {
             adapter = MonthlyGoalAdapter { position -> openDetailWithId(position) }
             layoutManager = LinearLayoutManager(requireContext())
+            itemAnimator = null
         }
 
         collectionViewModel.getMonthlyGoalList(args.year, args.month)

@@ -48,12 +48,14 @@ class CollectionFragment : Fragment() {
             layoutManager = LinearLayoutManager(requireContext()).also {
                 it.reverseLayout = true
             }
+            itemAnimator = null
         }
 
         viewModel.getIsNullList(currentYear)
         viewModel.isNullList.observe(viewLifecycleOwner) {
             (binding.rvCollection.adapter as CollectionAdapter).differ
                 .submitList(it.subList(0, currentMonth))
+            binding.rvCollection.smoothScrollToPosition(it.size - 1)
         }
     }
 

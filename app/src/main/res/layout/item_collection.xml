@@ -22,12 +22,13 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="18dp"
             android:gravity="center"
-            android:text="@string/text_open_monthly_goal" />
+            android:text="@string/text_open_monthly_goal"
+            android:textColor="#FF232021" />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#FFFFFFFF" />
+            android:background="#FFF9EBDF" />
 
         <TextView
             android:id="@+id/tv_monthly_writing"
@@ -36,7 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginVertical="18dp"
             android:gravity="center"
-            android:text="@string/text_open_monthly_writing" />
+            android:text="@string/text_open_monthly_writing"
+            android:textColor="#FF232021" />
     </LinearLayout>
 
     <RelativeLayout
@@ -52,7 +54,8 @@
             android:layout_height="wrap_content"
             android:background="@drawable/collection_item_background_null"
             android:gravity="center"
-            android:paddingVertical="18dp" />
+            android:paddingVertical="18dp"
+            android:textColor="#FF232021" />
 
         <ImageView
             android:id="@+id/iv_tag"

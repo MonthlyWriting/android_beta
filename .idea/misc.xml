@@ -7,11 +7,15 @@
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_brown_frame.xml" value="0.292" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_darker_gray_frame.xml" value="0.2045" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_edit_text_border.xml" value="0.2255" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_frame_brown.xml" value="0.205" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_frame_grey_bright.xml" value="0.205" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_frame_skin.xml" value="0.1605" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_frame_white.xml" value="0.1605" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_gray_frame.xml" value="0.264" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_skin_frame.xml" value="0.264" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/background_temp_popup.xml" value="0.2255" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/collection_container_background.xml" value="0.205" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/collection_item_background_null.xml" value="0.205" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_add.xml" value="0.264" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_back.xml" value="0.133" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_check_enabled.xml" value="0.2045" />
@@ -23,11 +27,15 @@
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_btn_setting_unselected.xml" value="0.104" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_drawer_up.xml" value="0.292" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_img_bear.xml" value="0.222" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_img_bear_big.xml" value="0.1255" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_img_bear_small.xml" value="0.1255" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_img_loading_bear.xml" value="0.222" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_level_fair_selected.xml" value="0.1835" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_level_good_selected.xml" value="0.1835" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_level_good_unselected.xml" value="0.1835" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_level_poor_selected.xml" value="0.1835" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/ic_tag_new.xml" value="0.205" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/item_collection_background_not_null.xml" value="0.205" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/rating_border.xml" value="0.292" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/selector_btn_collection.xml" value="0.264" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/selector_btn_level_fair.xml" value="0.1835" />
@@ -40,21 +48,24 @@
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/text_btn_past_record.xml" value="0.185" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/text_btn_save.xml" value="0.185" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/drawable/text_btn_skip.xml" value="0.185" />
-        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_main.xml" value="0.3796875" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_splash.xml" value="0.18465045592705168" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/activity_walk_through.xml" value="0.3796875" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_authority.xml" value="0.3796875" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_closing_loading.xml" value="0.23020833333333332" />
-        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_closing_paper.xml" value="0.28802083333333334" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_closing_paper.xml" value="0.16666666666666666" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_collection.xml" value="0.16576086956521738" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_collection_monthly.xml" value="0.2328125" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_goal_add.xml" value="0.18465045592705168" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_goal_detail.xml" value="0.2341485507246377" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_guide_container.xml" value="0.18465045592705168" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_home.xml" value="0.23958333333333334" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_name.xml" value="0.2296875" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_writing_long.xml" value="0.16988416988416988" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_writing_main.xml" value="0.16666666666666666" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_writing_short.xml" value="0.196875" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/fragment_writing_short_dialog.xml" value="0.14666666666666667" />
-        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_closing_paper_writing.xml" value="0.22" />
+        <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_closing_paper_writing.xml" value="0.25" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_collection.xml" value="0.24818840579710144" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_goal.xml" value="0.3796875" />
         <entry key="..\:/Users/DongHwa/AndroidStudioProjects/MW_BETA/app/src/main/res/layout/item_goal_photo.xml" value="0.3796875" />

@@ -18,6 +18,8 @@ class CollectionAdapter(private val year: Int) :
     RecyclerView.Adapter<CollectionAdapter.CollectionViewHolder>() {
 
     lateinit var context: Context
+    lateinit var rv: RecyclerView
+
     private var mExpandedPosition = -1
     private var previousExpandedPosition = -1
 
@@ -53,17 +55,15 @@ class CollectionAdapter(private val year: Int) :
             binding.tvMonth.text =
                 context.resources.getStringArray(R.array.month_name)[bindingAdapterPosition]
             if (!differ.currentList[bindingAdapterPosition]) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-                    binding.tvMonth.setBackgroundColor(ContextCompat.getColor(context,
-                        R.color.color_DDE0E5))
-                } else {
-                    binding.tvMonth.setBackgroundColor(context.resources.getColor(R.color.color_DDE0E5))
+                binding.tvMonth.apply {
+                    background = context.getDrawable(R.drawable.item_collection_background_not_null)
+                    setTextColor(R.color.white)
                 }
 
                 binding.tvMonthlyGoal.setOnClickListener {
                     val action =
                         CollectionFragmentDirections.openCollectionMonthly(year,
-                            bindingAdapterPosition+ 1)
+                            bindingAdapterPosition + 1)
                     it.findNavController().navigate(action)
                 }
 
@@ -80,6 +80,7 @@ class CollectionAdapter(private val year: Int) :
                     mExpandedPosition = if (isExpanded) -1 else bindingAdapterPosition
                     notifyItemChanged(previousExpandedPosition)
                     notifyItemChanged(bindingAdapterPosition)
+
                 }
             }
 

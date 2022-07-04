@@ -9,7 +9,7 @@ import androidx.viewpager2.widget.ViewPager2
 import com.monthlywriting.android.beta.R
 import com.monthlywriting.android.beta.adapter.GuideAdapter
 import com.monthlywriting.android.beta.databinding.FragmentGuideContainerBinding
-import com.monthlywriting.android.beta.databinding.FragmentNameBinding
+import com.monthlywriting.android.beta.di.App
 
 class GuideContainerFragment : Fragment() {
 
@@ -26,7 +26,6 @@ class GuideContainerFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         setViewPager()
-        setSkipFunction()
     }
 
     private fun setViewPager() {
@@ -38,11 +37,18 @@ class GuideContainerFragment : Fragment() {
                         resources.getString(R.string.text_guide_page_num, position + 1)
                     when (position) {
                         0 -> {
+                            binding.btnNext.text = getString(R.string.text_guide_next)
                             binding.btnBack.visibility = View.GONE
                         }
-                        1, 2 -> {
+                        1 -> {
+                            binding.btnNext.text = getString(R.string.text_guide_next)
                             binding.btnBack.visibility = View.VISIBLE
                         }
+                        2 -> {
+                            binding.btnNext.text = getString(R.string.text_guide_start)
+                            binding.btnBack.visibility = View.VISIBLE
+                        }
+
                     }
 
                     binding.btnBack.setOnClickListener {
@@ -52,18 +58,13 @@ class GuideContainerFragment : Fragment() {
                     binding.btnNext.setOnClickListener {
                         if (position == 2) {
                             closeGuide()
+                            App.prefs.guidePref = true
                         } else {
                             binding.vpGuide.setCurrentItem(position + 1, true)
                         }
                     }
                 }
             })
-        }
-    }
-
-    private fun setSkipFunction() {
-        binding.ivSkip.setOnClickListener {
-            closeGuide()
         }
     }
 

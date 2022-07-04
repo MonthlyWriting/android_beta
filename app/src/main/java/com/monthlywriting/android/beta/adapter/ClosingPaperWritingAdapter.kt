@@ -3,7 +3,6 @@ package com.monthlywriting.android.beta.adapter
 import android.content.Context
 import android.text.Editable
 import android.text.TextWatcher
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -71,7 +70,8 @@ class ClosingPaperWritingAdapter(
 
             binding.tvGoal.text = item.goal
             if (item.writing.isNullOrBlank()) {
-                binding.tvWriting.visibility = View.GONE
+                binding.tvWriting.text =
+                    context.resources.getString(R.string.text_writing_empty)
             } else {
                 binding.tvWriting.text = item.writing
             }
@@ -83,6 +83,10 @@ class ClosingPaperWritingAdapter(
                         binding.tvEvaluation.text = item.rating["emoji"].toString()
                     } else {
                         setTextViewColor(context, binding.tvEvaluation, R.color.color_click)
+                        if (!isEditable) {
+                            binding.tvEvaluation.text = ""
+                            binding.ivEvaluationNone.visibility = View.VISIBLE
+                        }
                     }
                 }
                 "percentage" -> {
@@ -105,8 +109,10 @@ class ClosingPaperWritingAdapter(
             }
 
             binding.tvEvaluation.setOnClickListener {
-                selectPosition()
-                it.findNavController().navigate(R.id.open_writing_short)
+                if (isEditable) {
+                    selectPosition()
+                    it.findNavController().navigate(R.id.open_writing_short)
+                }
             }
 
             binding.etWriting.addTextChangedListener(object : TextWatcher {

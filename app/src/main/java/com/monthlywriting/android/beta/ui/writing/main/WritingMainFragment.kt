@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.result.ActivityResultLauncher
 import androidx.fragment.app.activityViewModels
 import androidx.navigation.findNavController
@@ -15,6 +16,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monthlywriting.android.beta.R
+import com.monthlywriting.android.beta.activity.MainActivity
 import com.monthlywriting.android.beta.activity.WritingActivity
 import com.monthlywriting.android.beta.activity.WritingActivityViewModel
 import com.monthlywriting.android.beta.adapter.ClosingPaperWritingAdapter
@@ -49,6 +51,7 @@ class WritingMainFragment : Fragment() {
         setGalleryLauncher()
         setRecyclerView()
         setFunction()
+        handleBackAction()
     }
 
     private fun setRecyclerView() {
@@ -59,6 +62,7 @@ class WritingMainFragment : Fragment() {
                 saveTempList = { index, writing -> saveTempList(index, writing) }
             )
             layoutManager = LinearLayoutManager(requireContext())
+            itemAnimator = null
         }
 
         activityViewModel.monthlyGoalList.observe(viewLifecycleOwner) {
@@ -80,6 +84,7 @@ class WritingMainFragment : Fragment() {
             )
             layoutManager = GridLayoutManager(requireContext(), 4)
             addItemDecoration(GridMarginDecoration(requireContext()))
+            itemAnimator = null
         }
 
         (activity as WritingActivity).getAllPhotoList()
@@ -122,6 +127,18 @@ class WritingMainFragment : Fragment() {
                 resources.getString(R.string.toast_no_content),
                 Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun handleBackAction() {
+        requireActivity().onBackPressedDispatcher.addCallback(viewLifecycleOwner,
+            object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    (activity as WritingActivity).finish()
+
+                    val intent = Intent(requireContext(), MainActivity::class.java)
+                    startActivity(intent)
+                }
+            })
     }
 
     private fun selectIndex(index: Int) {

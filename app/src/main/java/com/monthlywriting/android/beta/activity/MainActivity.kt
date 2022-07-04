@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.View
+import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.navigation.findNavController
@@ -73,12 +74,11 @@ class MainActivity : AppCompatActivity() {
 
         if (!App.prefs.guidePref) {
             openGuide()
-            App.prefs.guidePref = true
         }
 
         viewModel.insertWriting()
 
-        if(intent.getBooleanExtra("isCollectionAdded", false)){
+        if (intent.getBooleanExtra("isCollectionAdded", false)) {
             showPopupSaved()
         }
     }
@@ -149,10 +149,8 @@ class MainActivity : AppCompatActivity() {
             .commit()
     }
 
-    fun showPopupSaved() {
-        binding.ivPopupSaved.visibility = View.VISIBLE
-        Handler(Looper.getMainLooper()).postDelayed({
-            binding.ivPopupSaved.visibility = View.GONE
-        }, 5000)
+    private fun showPopupSaved() {
+        Toast.makeText(this, getString(R.string.toast_saved_to_collection), Toast.LENGTH_SHORT)
+            .show()
     }
 }

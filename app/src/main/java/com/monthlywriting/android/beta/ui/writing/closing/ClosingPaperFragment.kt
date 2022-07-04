@@ -11,8 +11,6 @@ import android.view.ViewGroup
 import androidx.activity.OnBackPressedCallback
 import androidx.core.content.res.ResourcesCompat
 import androidx.fragment.app.activityViewModels
-import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.monthlywriting.android.beta.R
@@ -25,8 +23,6 @@ import com.monthlywriting.android.beta.adapter.MonthlyGoalPhotoAdapter
 import com.monthlywriting.android.beta.databinding.FragmentClosingPaperBinding
 import com.monthlywriting.android.beta.di.App
 import com.monthlywriting.android.beta.ui.goal.detail.PhotoDetailFragment
-import com.monthlywriting.android.beta.ui.main.home.HomeFragmentDirections
-import com.monthlywriting.android.beta.util.CurrentInfo
 import com.monthlywriting.android.beta.util.CustomTypefaceSpan
 
 class ClosingPaperFragment : Fragment() {
@@ -92,6 +88,7 @@ class ClosingPaperFragment : Fragment() {
         (activity as WritingActivity).getAllPhotoList()
         activityViewModel.photoList.observe(viewLifecycleOwner) {
             (binding.rvPhoto.adapter as MonthlyGoalPhotoAdapter).differ.submitList(it)
+            binding.tvPhotoEmpty.visibility = if (it.isEmpty()) View.VISIBLE else View.GONE
         }
     }
 
